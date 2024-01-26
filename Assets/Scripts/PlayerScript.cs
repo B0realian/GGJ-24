@@ -23,16 +23,19 @@ public class PlayerScript : MonoBehaviour
     Vector2 balanceInput;
     public PlayerState state;
 
-    bool grounded;
+    bool grounded = true;
 
-    [SerializeField, Range(0.5f, 3)] float moveSpeed;
-    [SerializeField, Range(1, 5)] float jumpForce;
-    [SerializeField, Range(0.5f, 2)] float balanceForce;
-
+    [SerializeField, Range(0.5f, 3)] float _moveSpeed;
+    [SerializeField, Range(1, 5)] float _jumpForce;
+    [SerializeField, Range(0.5f, 2)] float _balanceForce;
+    [SerializeField, Range(1, 5)] float _accRate;
+    [SerializeField, Range(1, 5)] float _decRate;
     private float _targetSpeed;
     private float _acceleration;
     private float _movement;
     private float _jumpTimer;
+    private float _targetRotation;
+    private float _zAngle;
 
 
     void Awake()
@@ -40,6 +43,7 @@ public class PlayerScript : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
         actions = new PlayerMovements();
+        actionMap = GetComponent<PlayerInput>().currentActionMap;
         state = PlayerState.Idle;
     }
 
@@ -75,7 +79,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (ctx.started && grounded)
         {
-            body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            body.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
 
@@ -87,7 +91,14 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        _targetSpeed = moveInput.x * _moveSpeed;
+        if (Mathf.Abs(_targetSpeed) > 0.1f) _acceleration = _accRate;
+        else if (Mathf.Abs(_targetSpeed) <= 0.1f) _acceleration = _decRate;
         _movement = (_targetSpeed - body.velocity.x) * _acceleration;
         body.AddForce(_movement * Vector2.right, ForceMode2D.Force);
+
+        _targetRotation = balanceInput.x * _balanceForce;
+        _zAngle = transform.rotation.z + _targetRotation;
+        body.MoveRotation(_zAngle);
     }
 }
