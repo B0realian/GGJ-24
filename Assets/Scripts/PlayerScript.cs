@@ -23,6 +23,17 @@ public class PlayerScript : MonoBehaviour
     Vector2 balanceInput;
     public PlayerState state;
 
+    bool grounded;
+
+    [SerializeField, Range(0.5f, 3)] float moveSpeed;
+    [SerializeField, Range(1, 5)] float jumpForce;
+    [SerializeField, Range(0.5f, 2)] float balanceForce;
+
+    private float _targetSpeed;
+    private float _acceleration;
+    private float _movement;
+    private float _jumpTimer;
+
 
     void Awake()
     {
@@ -56,21 +67,27 @@ public class PlayerScript : MonoBehaviour
 
     private void Move(InputAction.CallbackContext ctx)
     {
-        
+        moveInput = ctx.ReadValue<Vector2>();
+        moveInput.y = 0;
     }
 
     private void Jump(InputAction.CallbackContext ctx)
     {
-    
+        if (ctx.started && grounded)
+        {
+            body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
     }
 
     private void Balance(InputAction.CallbackContext ctx)
     {
-    
+        balanceInput = ctx.ReadValue<Vector2>();
+        balanceInput.y = 0;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        _movement = (_targetSpeed - body.velocity.x) * _acceleration;
+        body.AddForce(_movement * Vector2.right, ForceMode2D.Force);
     }
 }
