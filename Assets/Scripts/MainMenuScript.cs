@@ -18,6 +18,6 @@ public class MainMenuScript : MonoBehaviour
 
     public void ExitGame()
     {
-
+        Application.Quit();
     }
 }
