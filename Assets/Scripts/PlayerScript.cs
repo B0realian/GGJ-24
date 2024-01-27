@@ -12,7 +12,6 @@ public enum PlayerState
     Jumping,
 }
 
-
 public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D body;
@@ -41,7 +40,6 @@ public class PlayerScript : MonoBehaviour
     private float _movement;
     private float _targetRotation;
     private float _zAngle;
-
 
 
     void Awake()
@@ -115,7 +113,7 @@ public class PlayerScript : MonoBehaviour
         
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         _targetSpeed = moveInput.x * _moveSpeed;
         if (Mathf.Abs(_targetSpeed) > 0.1f) _acceleration = _accRate;
@@ -132,7 +130,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void Groundcheck()
+    private void Groundcheck()
     {
         if (Physics2D.OverlapCircle(groundcheck.position, _groundcheckRadius, GROUNDLAYER))
         {
