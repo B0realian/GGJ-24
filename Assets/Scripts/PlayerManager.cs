@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     public Transform playerLeftSpawn;
     public Transform playerRightSpawn;
     public Transform pianoSpawn;
+    public TextMeshProUGUI infoText;
     private int _gamepads;
 
     void Awake()
@@ -28,7 +30,8 @@ public class PlayerManager : MonoBehaviour
         switch (_gamepads)
         {
             case 0:
-                // Show text "You require at least one gamepad to play this game!"
+                infoText.enabled = true;
+                infoText.text = "This game requires at least one gamepad, preferably two.";
                 Invoke("NotEnoughGamepads", 5);
                 break;
             case 1:
