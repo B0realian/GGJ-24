@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77954a3ecc2ff6247aba749be396f5a6
+guid: ddddc5df71a83794982be89d747bf9c0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MoverAWalk_0
+      name: MoverBWalk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59eb4c346b23d0547adb24a92dfb5855
-      internalID: 1125239166
+      spriteID: 3325934b91a740e45a9cf99aca6059f8
+      internalID: -295597861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoverAWalk_1
+      name: MoverBWalk_1
       rect:
         serializedVersion: 2
         x: 24
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19014fe43abce974dbcc478d102eb2d7
-      internalID: 380611486
+      spriteID: dcc6200cbfa41194f8ed85dbd0f9e70e
+      internalID: 1781614508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoverAWalk_2
+      name: MoverBWalk_2
       rect:
         serializedVersion: 2
         x: 48
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5409fb6d85f20b148b6c71970f8c666b
-      internalID: -1679522327
+      spriteID: 3ca06253d771621488521d800a343552
+      internalID: -1015028814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoverAWalk_3
+      name: MoverBWalk_3
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f51ce54d5f8a04b8f5678e2dc0d5e5
-      internalID: 1775892320
+      spriteID: a4199146d3ebc8546ab5fcfc4d2d1d05
+      internalID: 279778181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoverAWalk_4
+      name: MoverBWalk_4
       rect:
         serializedVersion: 2
         x: 24
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06c8a974bf538ae44835b43c2a8d35cc
-      internalID: 506276541
+      spriteID: 82998ed35e9cb4a41b2f2cb2584c4434
+      internalID: 1973582173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoverAWalk_5
+      name: MoverBWalk_5
       rect:
         serializedVersion: 2
         x: 48
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb529972e6815644b5980ea32ffb40c
-      internalID: 1003467652
+      spriteID: c11d7250ceca83040be554961590c7da
+      internalID: 1893889825
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MoverAWalk_0: 1125239166
-      MoverAWalk_1: 380611486
-      MoverAWalk_2: -1679522327
-      MoverAWalk_3: 1775892320
-      MoverAWalk_4: 506276541
-      MoverAWalk_5: 1003467652
+      MoverBWalk_0: -295597861
+      MoverBWalk_1: 1781614508
+      MoverBWalk_2: -1015028814
+      MoverBWalk_3: 279778181
+      MoverBWalk_4: 1973582173
+      MoverBWalk_5: 1893889825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
