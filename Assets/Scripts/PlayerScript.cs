@@ -22,20 +22,26 @@ public class PlayerScript : MonoBehaviour
     Vector2 moveInput;
     Vector2 balanceInput;
     public PlayerState state;
+    Transform groundcheck;
 
-    bool grounded = true;
+    [SerializeField] bool _grounded = true;
+    bool _jumping;
 
-    [SerializeField, Range(0.5f, 3)] float _moveSpeed;
-    [SerializeField, Range(1, 5)] float _jumpForce;
-    [SerializeField, Range(0.5f, 2)] float _balanceForce;
-    [SerializeField, Range(1, 5)] float _accRate;
-    [SerializeField, Range(1, 5)] float _decRate;
+    const int GROUNDLAYER = 256;
+
+    [SerializeField, Range(2, 5)] float _moveSpeed = 3;
+    [SerializeField, Range(1, 5)] float _jumpForce = 4;
+    [SerializeField, Range(3, 10)] float _balanceForce = 6;
+    [SerializeField, Range(3, 5)] float _accRate = 3;
+    [SerializeField, Range(5, 9)] float _decRate = 5;
+    [SerializeField, Range(-0.1f, -1)] float _fallThreshold = -0.5f;
+    [SerializeField, Range(0.1f, 0.5f)] float _groundcheckRadius = 0.1f;
     private float _targetSpeed;
     private float _acceleration;
     private float _movement;
-    private float _jumpTimer;
     private float _targetRotation;
     private float _zAngle;
+
 
 
     void Awake()
@@ -45,6 +51,7 @@ public class PlayerScript : MonoBehaviour
         actions = new PlayerMovements();
         actionMap = GetComponent<PlayerInput>().currentActionMap;
         state = PlayerState.Idle;
+        groundcheck = transform.GetChild(0);
     }
 
     private void OnEnable()
@@ -54,7 +61,7 @@ public class PlayerScript : MonoBehaviour
         actionMap.FindAction("Move").canceled += Move;
         actionMap.FindAction("Jump").started += Jump;
         actionMap.FindAction("Jump").canceled += Jump;
-        actionMap.FindAction("Balance").started += Balance;
+        actionMap.FindAction("Balance").performed += Balance;
         actionMap.FindAction("Balance").canceled += Balance;
     }
 
@@ -64,7 +71,7 @@ public class PlayerScript : MonoBehaviour
         actionMap.FindAction("Move").canceled -= Move;
         actionMap.FindAction("Jump").started -= Jump;
         actionMap.FindAction("Jump").canceled -= Jump;
-        actionMap.FindAction("Balance").started -= Balance;
+        actionMap.FindAction("Balance").performed -= Balance;
         actionMap.FindAction("Balance").canceled -= Balance;
         actions.Disable();
     }
@@ -77,9 +84,17 @@ public class PlayerScript : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext ctx)
     {
-        if (ctx.started && grounded)
+        if (ctx.started && _grounded)
         {
             body.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _jumping = true;
+        }
+        else if (ctx.canceled)
+        {
+            if (body.velocity.y > 0)
+            {
+                body.velocity = new Vector2(body.velocity.x, 0);
+            }
         }
     }
 
@@ -87,6 +102,17 @@ public class PlayerScript : MonoBehaviour
     {
         balanceInput = ctx.ReadValue<Vector2>();
         balanceInput.y = 0;
+    }
+
+    private void Update()
+    {
+        Groundcheck();
+        if (_jumping) state = PlayerState.Jumping;
+        else if (Mathf.Abs(moveInput.x) == 0 && _grounded) state = PlayerState.Idle;
+        else if (Mathf.Abs(moveInput.x) > 0 && _grounded) state = PlayerState.Walking;
+
+        if (body.velocity.y < _fallThreshold && !_jumping) state = PlayerState.Falling;
+        
     }
 
     void FixedUpdate()
@@ -97,8 +123,22 @@ public class PlayerScript : MonoBehaviour
         _movement = (_targetSpeed - body.velocity.x) * _acceleration;
         body.AddForce(_movement * Vector2.right, ForceMode2D.Force);
 
-        _targetRotation = balanceInput.x * _balanceForce;
-        _zAngle = transform.rotation.z + _targetRotation;
-        body.MoveRotation(_zAngle);
+        if (Mathf.Abs(balanceInput.x) == 0) return;
+        else
+        {
+            _targetRotation = -balanceInput.x * _balanceForce;
+            _zAngle = body.rotation + _targetRotation;
+            body.MoveRotation(Quaternion.Euler(0, 0, _zAngle));
+        }
+    }
+
+    void Groundcheck()
+    {
+        if (Physics2D.OverlapCircle(groundcheck.position, _groundcheckRadius, GROUNDLAYER))
+        {
+            _grounded = true;
+            _jumping = false;
+        }
+        else _grounded = false;
     }
 }
