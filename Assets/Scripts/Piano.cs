@@ -10,7 +10,7 @@ public class Piano : MonoBehaviour
 {
     [SerializeField] private LayerMask groundMask;
 
-    [SerializeField] private float linearFrictionMultiplier;
+    [SerializeField] private float frictionMultiplier;
 
     [SerializeField] private float damageMultiplier = 1f;
 
@@ -49,28 +49,26 @@ public class Piano : MonoBehaviour
     }
     private void OnCollisionEnter2D( Collision2D collision)
     {
-
-        Collider2D[] collidersHit = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f, groundMask);
-        float speed = this.rb.velocity.magnitude;
-        if (speed > 2)
+        if (1 << collision.gameObject.layer == groundMask.value)
         {
-            this.currentHealth -= Mathf.RoundToInt(this.damageMultiplier * speed / collidersHit.Length);
-            Debug.Log("current health: " + this.currentHealth);
+            float speed = this.rb.velocity.magnitude;
             PlaySound(this.hittingSound);
-        }
-        Debug.Log(this.rb.velocity.magnitude);
-        this.rb.velocity *= this.linearFrictionMultiplier;
-        if( this.currentHealth < 0)
-        {
-            GameObject.Destroy(this.gameObject);
+            this.rb.velocity *= this.frictionMultiplier;
+            //Debug.Log("current health: " + this.currentHealth);
+            this.currentHealth -= Mathf.RoundToInt(this.damageMultiplier * speed);
+            if( this.currentHealth < 0)
+            {
+                //Destroy(this.gameObject);
+            }
         }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(Game.Instance.IsGameRunning && collision.otherCollider.gameObject.layer == 0 && HasStopped())
+        if(Game.Instance.IsGameRunning && 1 << collision.gameObject.layer == groundMask.value && HasStopped())
         {
             this.OnDropped?.Invoke(this);
+            Debug.Log("tjena");
         }
     }
 
@@ -94,11 +92,15 @@ public class Piano : MonoBehaviour
         return this.rb.velocity.magnitude < 0.001f;
     }
 
-    public void ResetPiano(Vector3 position)
+    public void ResetPiano(Vector2 position)
     {
-        this.audioSource.Stop();
+        if(audioSource != null)
+        {
+            this.audioSource.Stop();
+        }
         this.rb.velocity = Vector3.zero;
-        this.transform.position = position;
+        this.rb.position = position;
+        this.rb.rotation = 0f;
         this.currentHealth = MAX_HEALTH;
     }
 
