@@ -31,7 +31,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayGame()
     {
-        menu.SetActive(false);
+        FalseAll();
         play.SetActive(true);
         Invoke("StartGame", playDelay);
     }
@@ -43,7 +43,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void HowTo()
     {
-        menu.SetActive(false);
+        FalseAll();
         how.SetActive(true);
         Invoke("Instructions", playDelay);
     }
@@ -55,7 +55,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void Credits()
     {
-        menu.SetActive(false);
+        FalseAll();
         credits.SetActive(true);
         Invoke("AboutGame", playDelay);
     }
@@ -67,7 +67,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void ExitGame()
     {
-        menu.SetActive(false);
+        FalseAll();
         quit.SetActive(true);
         Invoke("Quitting", playDelay);
     }
@@ -75,5 +75,14 @@ public class MainMenuScript : MonoBehaviour
     private void Quitting()
     {
         Application.Quit();
+    }
+
+    private void FalseAll()
+    {
+        menu.SetActive(false);
+        quit.SetActive(false);
+        credits.SetActive(false);
+        how.SetActive(false);
+        play.SetActive(false);
     }
 }
