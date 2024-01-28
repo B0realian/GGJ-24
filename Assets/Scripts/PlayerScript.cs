@@ -34,13 +34,15 @@ public class PlayerScript : MonoBehaviour
     [SerializeField, Range(3, 10)] float _balanceForce = 6;
     [SerializeField, Range(3, 5)] float _accRate = 3;
     [SerializeField, Range(5, 9)] float _decRate = 5;
-    [SerializeField, Range(-0.1f, -1)] float _fallThreshold = -0.5f;
+    [SerializeField, Range(-0.1f, -1)] float _fallThreshold = -1f;
     [SerializeField, Range(0.1f, 0.5f)] float _groundcheckRadius = 0.1f;
     private float _targetSpeed;
     private float _acceleration;
     private float _movement;
     private float _targetRotation;
     private float _zAngle;
+    private float _jumpTimer;
+    private float _jumpTime = 0.3f;
 
 
     void Awake()
@@ -86,6 +88,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (ctx.started && _grounded)
         {
+            _jumpTimer = 0;
             body.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _jumping = true;
         }
@@ -106,7 +109,9 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
-        Groundcheck();
+        _jumpTimer += Time.deltaTime;
+        if (_jumpTimer > _jumpTime) Groundcheck();
+
         if (_jumping) state = PlayerState.Jumping;
         else if (Mathf.Abs(moveInput.x) == 0 && _grounded) state = PlayerState.Idle;
         else if (Mathf.Abs(moveInput.x) > 0 && _grounded) state = PlayerState.Walking;

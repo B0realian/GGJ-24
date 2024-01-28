@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 1407426313953154968}
   - component: {fileID: 8064836282590789803}
   - component: {fileID: 8155302060146603625}
-  - component: {fileID: 6053350460501951704}
+  - component: {fileID: -8600002295421823341}
   m_Layer: 6
   m_Name: PlayerRight
   m_TagString: Player
@@ -450,7 +450,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a183129852b5cd64386ba627ebe0b863, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 2
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -658,7 +658,7 @@ MonoBehaviour:
   _decRate: 5
   _fallThreshold: -0.5
   _groundcheckRadius: 0.1
---- !u!114 &6053350460501951704
+--- !u!114 &-8600002295421823341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -667,9 +667,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6254659072999564202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0ec8b0b9c98c3489e02c4105507e91, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d01108f650b25445b63df8d35a54123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 8155302060146603625}
   idleSound: {fileID: 0}
   walkSound: {fileID: 0}
   jumpSound: {fileID: 0}

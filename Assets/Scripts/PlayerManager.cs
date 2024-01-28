@@ -18,12 +18,24 @@ public class PlayerManager : MonoBehaviour
     public Transform playerRightSpawn;
     public Transform pianoSpawn;
     public TextMeshProUGUI infoText;
+    public AudioClip startClip01;
+    public AudioClip startClip02;
+    public AudioClip startClip03;
+    AudioSource audioSource;
     private int _gamepads;
 
     void Awake()
     {
+        infoText.enabled = false;
         inputManager = GetComponent<PlayerInputManager>();
+        audioSource = GetComponent<AudioSource>();
         _gamepads = Gamepad.all.Count;
+        
+        SpawnPlayers();
+    }
+
+    public void SpawnPlayers()
+    {
         playerLeftPrefab.transform.position = playerLeftSpawn.position;
         playerRightPrefab.transform.position = playerRightSpawn.position;
 
@@ -44,6 +56,18 @@ public class PlayerManager : MonoBehaviour
                 break;
             default: break;
         }
+        //switch (Random.Range(0, 4))
+        //{
+        //    case 0:
+
+        //}
+
+        Invoke("SpawnPiano", 5);
+    }
+
+    private void SpawnPiano()
+    {
+        Instantiate(pianoPrefab, pianoSpawn.position, Quaternion.identity);
     }
 
     private void NotEnoughGamepads()

@@ -38,7 +38,7 @@ public class MainMenuScript : MonoBehaviour
 
     private void StartGame()
     {
-        SceneManager.LoadSceneAsync("Philip");
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void HowTo()

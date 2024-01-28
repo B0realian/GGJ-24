@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimatePlayer : MonoBehaviour
 {
-    private PlayerScript _player;
+    public PlayerScript _player;
     private Animator _animator;
     private AudioSource _audioSource;
 
@@ -30,6 +30,7 @@ public class AnimatePlayer : MonoBehaviour
 
     private void GetCurrentState(PlayerState _newState)
     {
+
         if (_currentState == _newState) return;
 
         _currentState = _newState;
