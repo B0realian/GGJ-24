@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47ff02abfc360d7479c226299ddc9cb7
-      internalID: 11842561
+      spriteID: 98491f623acca014b9e8ef2e60a5ca03
+      internalID: 2039112199
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d78bc3d83daf5842851001409566b72
-      internalID: 1143927713
+      spriteID: a093d4329b244024c91b8b4fa55d52a1
+      internalID: -2060763811
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fb3c6c92fa7f9343b740e247726b56e
-      internalID: 1467037447
+      spriteID: fb64a019c01a31446b8aeace914e6f81
+      internalID: 338870232
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5aaaf7c83c29174c9643cd85d9941ab
-      internalID: -786860158
+      spriteID: 110d11190c2c6c046a96c2a295c33046
+      internalID: 1678557066
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 434efe70badcbc04bb9dc56838cc45d2
-      internalID: 1684552987
+      spriteID: 5dc68371cb8d3c54682f3487db64bc92
+      internalID: -351226626
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e61ff855918e0e4c8697fdbec1ab822
-      internalID: -1973114550
+      spriteID: d3067c07d5234c444ba5c16a807761d6
+      internalID: -557435064
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MoverBIdle_0: 11842561
-      MoverBIdle_1: 1143927713
-      MoverBIdle_2: 1467037447
-      MoverBIdle_3: -786860158
-      MoverBIdle_4: 1684552987
-      MoverBIdle_5: -1973114550
+      MoverBIdle_0: 2039112199
+      MoverBIdle_1: -2060763811
+      MoverBIdle_2: 338870232
+      MoverBIdle_3: 1678557066
+      MoverBIdle_4: -351226626
+      MoverBIdle_5: -557435064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
