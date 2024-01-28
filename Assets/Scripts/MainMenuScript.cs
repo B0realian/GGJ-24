@@ -15,6 +15,8 @@ public class MainMenuScript : MonoBehaviour
 
     AudioSource audiosource;
     public AudioClip music;
+
+    public float playDelay = 1.75f;
     
     private void Start()
     {
@@ -31,7 +33,7 @@ public class MainMenuScript : MonoBehaviour
     {
         menu.SetActive(false);
         play.SetActive(true);
-        Invoke("StartGame", 3);
+        Invoke("StartGame", playDelay);
     }
 
     private void StartGame()
@@ -43,7 +45,7 @@ public class MainMenuScript : MonoBehaviour
     {
         menu.SetActive(false);
         how.SetActive(true);
-        Invoke("Instructions", 3);
+        Invoke("Instructions", playDelay);
     }
 
     private void Instructions()
@@ -55,7 +57,7 @@ public class MainMenuScript : MonoBehaviour
     {
         menu.SetActive(false);
         credits.SetActive(true);
-        Invoke("AboutGame", 3);
+        Invoke("AboutGame", playDelay);
     }
 
     private void AboutGame()
@@ -67,7 +69,7 @@ public class MainMenuScript : MonoBehaviour
     {
         menu.SetActive(false);
         quit.SetActive(true);
-        Invoke("Quitting", 3);
+        Invoke("Quitting", playDelay);
     }
 
     private void Quitting()
