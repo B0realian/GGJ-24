@@ -19,11 +19,14 @@ public class TrackingCamera : MonoBehaviour
     {
         Vector3 movePosition = target.position + offset;
         var smoothPos = Vector3.SmoothDamp(transform.position, movePosition, ref this.velocity, damping);
+        float yPos = smoothPos.y;
+        if(yPos >-30)
+        {
+            float capedX = Math.Max(smoothPos.x, minX);
+            capedX = Math.Min(capedX, maxX);
+            smoothPos.Set(capedX, smoothPos.y, -10);
+        }
 
-        float capedX = Math.Max(smoothPos.x, minX);
-        capedX = Math.Min(capedX, maxX);
-
-        smoothPos.Set(capedX, smoothPos.y, -10);
         transform.position = smoothPos;
     }
 }
