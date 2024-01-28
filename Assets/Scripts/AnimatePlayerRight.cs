@@ -45,7 +45,7 @@ public class AnimatePlayerRight : MonoBehaviour
             case PlayerState.Walking:
                 _audioSource.clip = walkSound;
                 _audioSource.Play();
-                _animator.Play("Right_Idle");
+                _animator.Play("Right_Walk");
                 break;
 
             case PlayerState.Jumping:
