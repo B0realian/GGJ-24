@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 778491437034767298}
   m_Layer: 7
   m_Name: Piano 1
-  m_TagString: Untagged
+  m_TagString: Piano
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

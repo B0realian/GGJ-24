@@ -17,16 +17,21 @@ public class TrackingCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movePosition = target.position + offset;
-        var smoothPos = Vector3.SmoothDamp(transform.position, movePosition, ref this.velocity, damping);
-        float yPos = smoothPos.y;
-        if(yPos >-30)
+        if (target == null)
+            target = GameObject.FindWithTag("Piano").transform;
+        else
         {
-            float capedX = Math.Max(smoothPos.x, minX);
-            capedX = Math.Min(capedX, maxX);
-            smoothPos.Set(capedX, smoothPos.y, -10);
-        }
+            Vector3 movePosition = target.position + offset;
+            var smoothPos = Vector3.SmoothDamp(transform.position, movePosition, ref this.velocity, damping);
+            float yPos = smoothPos.y;
+            if (yPos > -30)
+            {
+                float capedX = Math.Max(smoothPos.x, minX);
+                capedX = Math.Min(capedX, maxX);
+                smoothPos.Set(capedX, smoothPos.y, -10);
+            }
 
-        transform.position = smoothPos;
+            transform.position = smoothPos;
+        }
     }
 }
