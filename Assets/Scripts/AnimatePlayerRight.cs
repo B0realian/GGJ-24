@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatePlayer : MonoBehaviour
+public class AnimatePlayerRight : MonoBehaviour
 {
     private PlayerScript _player;
     private Animator _animator;
@@ -13,7 +13,7 @@ public class AnimatePlayer : MonoBehaviour
     public AudioClip walkSound;
     public AudioClip jumpSound;
     public AudioClip fallSound;
-    
+
     PlayerState _currentState;
 
     private void Start()
@@ -39,25 +39,25 @@ public class AnimatePlayer : MonoBehaviour
             case PlayerState.Idle:
                 _audioSource.clip = idleSound;
                 _audioSource.Play();
-                _animator.Play("Left_Idle");
+                _animator.Play("Right_Idle");
                 break;
 
             case PlayerState.Walking:
                 _audioSource.clip = walkSound;
                 _audioSource.Play();
-                _animator.Play("Left_Idle");
+                _animator.Play("Right_Idle");
                 break;
 
             case PlayerState.Jumping:
                 _audioSource.clip = jumpSound;
                 _audioSource.Play();
-                _animator.Play("Left_Idle");
+                _animator.Play("Right_Idle");
                 break;
 
             case PlayerState.Falling:
                 _audioSource.clip = fallSound;
                 _audioSource.Play();
-                _animator.Play("Left_Idle");
+                _animator.Play("Right_Idle");
                 break;
             default: break;
         }
