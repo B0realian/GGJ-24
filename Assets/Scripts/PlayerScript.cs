@@ -21,7 +21,8 @@ public class PlayerScript : MonoBehaviour
     Vector2 moveInput;
     Vector2 balanceInput;
     public PlayerState state;
-    Transform groundcheck;
+    Transform groundcheckL;
+    Transform groundcheckR;
 
     [SerializeField] bool _grounded = true;
     bool _jumping;
@@ -49,7 +50,8 @@ public class PlayerScript : MonoBehaviour
         actions = new PlayerMovements();
         actionMap = GetComponent<PlayerInput>().currentActionMap;
         state = PlayerState.Idle;
-        groundcheck = transform.GetChild(0);
+        groundcheckL = transform.GetChild(0);
+        groundcheckR = transform.GetChild(1);
     }
 
     private void OnEnable()
@@ -132,7 +134,8 @@ public class PlayerScript : MonoBehaviour
 
     private void Groundcheck()
     {
-        if (Physics2D.OverlapCircle(groundcheck.position, _groundcheckRadius, GROUNDLAYER))
+        if (Physics2D.OverlapCircle(groundcheckL.position, _groundcheckRadius, GROUNDLAYER)
+            || Physics2D.OverlapCircle(groundcheckR.position, _groundcheckRadius, GROUNDLAYER))
         {
             _grounded = true;
             _jumping = false;
