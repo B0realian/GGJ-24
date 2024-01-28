@@ -51,7 +51,7 @@ public class AnimatePlayerRight : MonoBehaviour
             case PlayerState.Jumping:
                 _audioSource.clip = jumpSound;
                 _audioSource.Play();
-                _animator.Play("Right_Idle");
+                _animator.Play("Right_Jump");
                 break;
 
             case PlayerState.Falling:
