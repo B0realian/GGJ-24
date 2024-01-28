@@ -12,6 +12,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject credits;
     public GameObject how;
     public GameObject play;
+    public GameObject howImage;
 
     AudioSource audiosource;
     public AudioClip music;
@@ -23,10 +24,8 @@ public class MainMenuScript : MonoBehaviour
         audiosource = GetComponent<AudioSource>();
         audiosource.clip = music;
         audiosource.Play();
-        quit.SetActive(false);
-        credits.SetActive(false);
-        how.SetActive(false);
-        play.SetActive(false);
+        FalseAll();
+        menu.SetActive(true);
     }
 
     public void PlayGame()
@@ -50,7 +49,8 @@ public class MainMenuScript : MonoBehaviour
 
     private void Instructions()
     {
-        // Show instructions
+        FalseAll();
+        howImage.SetActive(true);
     }
 
     public void Credits()
@@ -77,6 +77,12 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
     }
 
+    public void BackButton()
+    {
+        FalseAll();
+        menu.SetActive(true);
+    }
+
     private void FalseAll()
     {
         menu.SetActive(false);
@@ -84,5 +90,7 @@ public class MainMenuScript : MonoBehaviour
         credits.SetActive(false);
         how.SetActive(false);
         play.SetActive(false);
+        howImage.SetActive(false);
     }
-}
+
+    }
