@@ -1975,7 +1975,7 @@ MonoBehaviour:
   play: {fileID: 1842655703}
   howImage: {fileID: 1240730694}
   music: {fileID: 8300000, guid: 2dfe870efa1900543a045f404201eff8, type: 3}
-  playDelay: 1.75
+  playDelay: 0.7
 --- !u!82 &1892840612
 AudioSource:
   m_ObjectHideFlags: 0

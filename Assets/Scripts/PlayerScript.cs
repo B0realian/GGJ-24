@@ -44,6 +44,8 @@ public class PlayerScript : MonoBehaviour
     private float _jumpTimer;
     private float _jumpTime = 0.3f;
 
+    GameObject piano;
+
 
     void Awake()
     {
@@ -54,6 +56,7 @@ public class PlayerScript : MonoBehaviour
         state = PlayerState.Idle;
         groundcheckL = transform.GetChild(0);
         groundcheckR = transform.GetChild(1);
+        body.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     private void OnEnable()
@@ -109,6 +112,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
+        if (piano == null) FindPiano();
         _jumpTimer += Time.deltaTime;
         if (_jumpTimer > _jumpTime) Groundcheck();
 
@@ -146,5 +150,15 @@ public class PlayerScript : MonoBehaviour
             _jumping = false;
         }
         else _grounded = false;
+    }
+
+    private void FindPiano()
+    {
+        piano = GameObject.FindWithTag("Piano");
+        if (piano != null)
+        {
+            body.constraints = RigidbodyConstraints2D.None;
+        }
+        
     }
 }

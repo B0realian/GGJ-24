@@ -1697,11 +1697,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1125955412511408516, guid: b1d935fc324fb3d4ba368925294b5b33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.31
+      value: -6.3
       objectReference: {fileID: 0}
     - target: {fileID: 1125955412511408516, guid: b1d935fc324fb3d4ba368925294b5b33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.36
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 1125955412511408516, guid: b1d935fc324fb3d4ba368925294b5b33, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1770,6 +1770,10 @@ PrefabInstance:
     - target: {fileID: 6831557646002488, guid: 6245e934cf752894e83ab1d02d5dfe16, type: 3}
       propertyPath: m_Name
       value: NewStaircaseWhite (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641586158642015457, guid: 6245e934cf752894e83ab1d02d5dfe16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6995595953911160093, guid: 6245e934cf752894e83ab1d02d5dfe16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1924,11 +1928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1146aa689fab49d4aad1fdf6ed015195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
   damping: 0
-  minX: 0
-  maxX: 0
 --- !u!114 &833505739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3604,7 +3604,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

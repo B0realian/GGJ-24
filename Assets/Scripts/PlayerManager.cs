@@ -62,7 +62,7 @@ public class PlayerManager : MonoBehaviour
 
         //}
 
-        Invoke("SpawnPiano", 5);
+        Invoke("SpawnPiano", 3);
     }
 
     private void SpawnPiano()

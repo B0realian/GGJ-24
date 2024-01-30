@@ -17,7 +17,7 @@ public class MainMenuScript : MonoBehaviour
     AudioSource audiosource;
     public AudioClip music;
 
-    public float playDelay = 1.75f;
+    public float playDelay = 0.7f;
     
     private void Start()
     {

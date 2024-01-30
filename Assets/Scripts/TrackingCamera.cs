@@ -6,31 +6,30 @@ using UnityEngine;
 
 public class TrackingCamera : MonoBehaviour
 {
-    public Transform target;
-    public Vector3 offset;
-    public float damping;
+    private Transform piano;
+    Vector3 movePosition;
+    Vector3 smoothPos;
+    Vector3 velocity = Vector3.zero;
 
-    public float minX;
-    public float maxX;
- 
-    private Vector3 velocity = Vector3.zero;
+    public float damping = 0.1f;
+    private float xPos;
+    private float yPos;
+    const float zPos = -10;
+    const float xCap = 0;
+    const float yCap = -33.5f;      // Measured in editor: change value depending on level.
 
     void FixedUpdate()
     {
-        if (target == null)
-            target = GameObject.FindWithTag("Piano").transform;
+        if (piano == null)
+            piano = GameObject.FindWithTag("Piano").transform;
         else
         {
-            Vector3 movePosition = target.position + offset;
-            var smoothPos = Vector3.SmoothDamp(transform.position, movePosition, ref this.velocity, damping);
-            float yPos = smoothPos.y;
-            if (yPos > -30)
-            {
-                float capedX = Math.Max(smoothPos.x, minX);
-                capedX = Math.Min(capedX, maxX);
-                smoothPos.Set(capedX, smoothPos.y, -10);
-            }
+            yPos = piano.position.y;
+            if (yPos > -33) xPos = 0;
+            else xPos = piano.position.x;
 
+            movePosition = new Vector3(Mathf.Min(xPos, xCap), Mathf.Max(yPos, yCap), zPos);
+            Vector3 smoothPos = Vector3.SmoothDamp(transform.position, movePosition, ref this.velocity, damping);
             transform.position = smoothPos;
         }
     }
