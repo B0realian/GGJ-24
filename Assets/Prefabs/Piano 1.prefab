@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 51196662606462256}
   - component: {fileID: 414100079923639091}
   - component: {fileID: 778491437034767298}
+  - component: {fileID: 6818584414930680023}
   m_Layer: 7
   m_Name: Piano 1
   m_TagString: Piano
@@ -236,3 +237,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6818584414930680023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259701460245621941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc9b60ab9795c84fa5b434bfa6a7fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mint: {fileID: 21300000, guid: 3572083302e88834589b1a80d0860791, type: 3}
+  good: {fileID: 21300000, guid: 26595144356aa144782128204d8daa3f, type: 3}
+  lightlyPlayed: {fileID: 21300000, guid: 25df0230d207e4747945f38bdc0d35c3, type: 3}
+  heavilyPlayed: {fileID: 21300000, guid: bf90f41e152caba4c9a603b02b79ae8a, type: 3}
+  collisionTimer: 4
+  spawnDelay: 1
+  health: 0
+  maxHealth: 4
+  infoText: {fileID: 0}

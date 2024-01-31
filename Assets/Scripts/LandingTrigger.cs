@@ -8,11 +8,20 @@ public class LandingTrigger : MonoBehaviour
     Color Active = new Color(1, 1, 1, 1);       // White
     Color inActive = new Color(0, 0, 0, 0.5f);  // Black with 50% alpha.
     bool triggered;
+    Transform spawnpoint;
+    Transform checkpoint;
+
+    private void Start()
+    {
+        spawnpoint = GameObject.Find("SpawnPoints").transform;
+        checkpoint = transform.GetChild(0).transform;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && !triggered)
         {
+            spawnpoint.position = checkpoint.position;
             foreach (GameObject step in stairwayAbove)
             {
                 step.GetComponent<SpriteRenderer>().color = inActive;

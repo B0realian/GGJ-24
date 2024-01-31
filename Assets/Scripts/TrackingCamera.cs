@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TrackingCamera : MonoBehaviour
 {
-    private Transform piano;
+    public Transform piano;
     Vector3 movePosition;
     Vector3 smoothPos;
     Vector3 velocity = Vector3.zero;
@@ -21,7 +21,7 @@ public class TrackingCamera : MonoBehaviour
     void FixedUpdate()
     {
         if (piano == null)
-            piano = GameObject.FindWithTag("Piano").transform;
+            return;
         else
         {
             yPos = piano.position.y;
