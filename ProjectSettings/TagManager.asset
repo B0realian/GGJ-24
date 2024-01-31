@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Head
   - Piano
+  - Environment
+  - Ground
   layers:
   - Default
   - TransparentFX
