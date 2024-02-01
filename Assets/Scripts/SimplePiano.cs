@@ -16,9 +16,9 @@ public class SimplePiano : MonoBehaviour
     public float spawnDelay = 1.0f;
     private float _collisionTime;
 
-    public int health;
-    public int maxHealth = 4;
-
+    int health;
+    public int maxHealth = 8;   // Try to make this divisible by 4.
+    
     bool collisionDelay = false;
     bool gameOver = false;
 
@@ -75,13 +75,13 @@ public class SimplePiano : MonoBehaviour
     {
         switch (health) 
         {
-            case 3:
+            case int n when (n < maxHealth && n >= (maxHealth * 3 / 4)):
                 spriteRenderer.sprite = good;
                 break;
-            case 2:
+            case int n when (n < (maxHealth * 3 / 4) && n >= (maxHealth / 2)):
                 spriteRenderer.sprite = lightlyPlayed;
                 break;
-            case 1:
+            case int n when (n < (maxHealth / 2) && n >= (maxHealth / 4)):
                 spriteRenderer.sprite= heavilyPlayed;
                 break;
             case 0:

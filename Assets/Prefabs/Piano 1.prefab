@@ -255,6 +255,4 @@ MonoBehaviour:
   heavilyPlayed: {fileID: 21300000, guid: bf90f41e152caba4c9a603b02b79ae8a, type: 3}
   collisionTimer: 4
   spawnDelay: 1
-  health: 0
-  maxHealth: 4
-  infoText: {fileID: 0}
+  maxHealth: 8
