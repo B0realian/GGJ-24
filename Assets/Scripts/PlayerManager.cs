@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
         {
             case 0:
                 infoText.enabled = true;
-                infoText.text = "This game requires at least one gamepad, preferably two.";
+                infoText.text = "This game requires at least one gamepad preferably two";
                 Invoke("NotEnoughGamepads", 5);
                 break;
             case 1:
@@ -62,7 +62,7 @@ public class PlayerManager : MonoBehaviour
 
         //}
 
-        Invoke("SpawnPiano", 3);
+        Invoke("SpawnPiano", 2);
     }
 
     private void SpawnPiano()

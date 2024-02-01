@@ -85,6 +85,7 @@ public class SimplePiano : MonoBehaviour
                 spriteRenderer.sprite= heavilyPlayed;
                 break;
             case 0:
+                gameOver = true;
                 moverA.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 moverB.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 infoText.enabled = true;

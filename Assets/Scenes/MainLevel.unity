@@ -1568,6 +1568,8 @@ GameObject:
   - component: {fileID: 617068856}
   - component: {fileID: 617068858}
   - component: {fileID: 617068857}
+  - component: {fileID: 617068860}
+  - component: {fileID: 617068859}
   m_Layer: 0
   m_Name: Plank (1)
   m_TagString: Ground
@@ -1687,6 +1689,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &617068859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617068855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af27c5b6fc179446843735e7db4c7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &617068860
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617068855}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.24891733, y: 2.183967}
+  m_Size: {x: 0.15673137, y: 3.525839}
+  m_Direction: 0
 --- !u!1 &645162494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,15 +2585,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 17fd7dded5b60884280f8ea3bff08df2, type: 2}
-  m_sharedMaterial: {fileID: 1358190100888043618, guid: 17fd7dded5b60884280f8ea3bff08df2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b14c54d0e84f9ab46ae11e2c8629c150, type: 2}
+  m_sharedMaterial: {fileID: 4601340293417615897, guid: b14c54d0e84f9ab46ae11e2c8629c150, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190203
-  m_fontColor: {r: 0.4811321, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.7830189, g: 0.45813882, b: 0.033241354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2561,8 +2610,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 125
+  m_fontSizeBase: 125
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2625,10 +2674,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1730112605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 250}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1102391352
 GameObject:
