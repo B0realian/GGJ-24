@@ -12,6 +12,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject credits;
     public GameObject how;
     public GameObject play;
+    public GameObject creditsImage;
     public GameObject howImage;
 
     AudioSource audiosource;
@@ -62,7 +63,8 @@ public class MainMenuScript : MonoBehaviour
 
     private void AboutGame()
     {
-        // Show credits
+        FalseAll();
+        creditsImage.SetActive(true);
     }
 
     public void ExitGame()
@@ -91,6 +93,7 @@ public class MainMenuScript : MonoBehaviour
         how.SetActive(false);
         play.SetActive(false);
         howImage.SetActive(false);
+        creditsImage.SetActive(false);
     }
 
     }

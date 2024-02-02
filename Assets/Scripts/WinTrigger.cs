@@ -13,18 +13,14 @@ public class WinTrigger : MonoBehaviour
 
     private float _menuDelay = 3;
 
-    void Start()
-    {
-        infoText = GameObject.Find("InfoText").GetComponent<TextMeshProUGUI>();
-        moverA = GameObject.Find("PlayerLeft(Clone)").GetComponent<Rigidbody2D>(); 
-        moverB = GameObject.Find("PlayerRight(Clone)").GetComponent<Rigidbody2D>();
-        piano = GameObject.FindWithTag("Piano").GetComponent<Rigidbody2D>();
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            infoText = GameObject.Find("InfoText").GetComponent<TextMeshProUGUI>();
+            moverA = GameObject.Find("PlayerLeft(Clone)").GetComponent<Rigidbody2D>();
+            moverB = GameObject.Find("PlayerRight(Clone)").GetComponent<Rigidbody2D>();
+            piano = GameObject.FindWithTag("Piano").GetComponent<Rigidbody2D>();
             moverA.constraints = RigidbodyConstraints2D.FreezeAll;
             moverB.constraints = RigidbodyConstraints2D.FreezeAll;
             piano.constraints = RigidbodyConstraints2D.FreezeAll;

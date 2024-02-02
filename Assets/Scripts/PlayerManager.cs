@@ -49,20 +49,15 @@ public class PlayerManager : MonoBehaviour
             case 1:
                 playerLeft = PlayerInput.Instantiate(playerLeftPrefab, controlScheme: "GamePad", pairWithDevice: Gamepad.all[0]);
                 playerRight = PlayerInput.Instantiate(playerRightPrefab, controlScheme: "Keyboard&Mouse", pairWithDevice: Keyboard.current);
+                Invoke("SpawnPiano", 2);
                 break;
             case > 1:
                 playerLeft = PlayerInput.Instantiate(playerLeftPrefab, controlScheme: "GamePad", pairWithDevice: Gamepad.all[0]);
                 playerRight = PlayerInput.Instantiate(playerRightPrefab, controlScheme: "GamePad", pairWithDevice: Gamepad.all[1]);
+                Invoke("SpawnPiano", 2);
                 break;
             default: break;
         }
-        //switch (Random.Range(0, 4))
-        //{
-        //    case 0:
-
-        //}
-
-        Invoke("SpawnPiano", 2);
     }
 
     private void SpawnPiano()
