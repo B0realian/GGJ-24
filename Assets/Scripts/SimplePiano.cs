@@ -19,7 +19,7 @@ public class SimplePiano : MonoBehaviour
     int health;
     public int maxHealth = 8;   // Try to make this divisible by 4.
     
-    bool collisionDelay = false;
+    [HideInInspector] public bool collisionDelay = false;
     bool gameOver = false;
 
     TrackingCamera cam;
@@ -56,18 +56,15 @@ public class SimplePiano : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void CollidedWithGound()
     {
-        if (collision.gameObject.tag == "Ground" && !collisionDelay)
+        collisionDelay = true;
+        health--;
+        FindSprite(health);
+        if (!gameOver)
         {
-            collisionDelay = true;
-            health--;
-            FindSprite(health);
-            if (!gameOver)
-            {
-                Invoke("RespawnMovers", spawnDelay);
-                Invoke("RespawnPiano", spawnDelay + 2);
-            }
+            Invoke("RespawnMovers", spawnDelay);
+            Invoke("RespawnPiano", spawnDelay + 2);
         }
     }
 
